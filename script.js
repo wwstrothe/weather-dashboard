@@ -1,5 +1,5 @@
 var apiKey = "0d85314b31a755a43bdccedd2ac4d9c4";
-var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
+var geoUrl = "https://api.openweathermap.org/geo/1.0/direct?q=";
 var url = "https://api.openweathermap.org/data/2.5/onecall?";
 var exclude = "&exclude=minutely,hourly,alerts&units=imperial";
 var searchForm = $("#search-form");
