@@ -1,14 +1,14 @@
 var apiKey = "0d85314b31a755a43bdccedd2ac4d9c4";
 var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
 var url = "https://api.openweathermap.org/data/2.5/onecall?";
+var exclude = "&exclude=minutely,hourly,alerts&units=imperial";
 var searchForm = $("#search-form");
 var cityInput = $("#cityName");
 var searchBtn = $("#search");
-var exclude = "&exclude=minutely,hourly,alerts&units=imperial";
 var defaultCity = "Phoenix";
 var day = 1;
 
-
+// FUNCTION FOR CURRENT WEATHER
 var current = function(city) {
   // USES GEOCODING API TO TURN CITY --> LONG/LAT
   fetch(geoUrl + city + "&appid=" + apiKey).then(function (response) {
@@ -53,24 +53,23 @@ var current = function(city) {
 };
 
 var forecast = function(weatherData) {
-    // LOOP THROUGH MOST RECENT 5 DAYS AND DISPLAY DATA
-    $("#five-day-card").empty();
-    for (var i = 1; i < 6; i++) {
-      // USE MOMENT.JS TO SHOW DAY
-      var date = new Date(weatherData.daily[i].dt * 1000)
-      // MAKES 5 FORECAST CARDS 
-      var forecastCard = $("<div class='card col-md-2 col-sm-12 mb-2 bg-primary'></div>")
-      forecastCard.html(`<div class="card-body forecast">
-      <h6 class="card-title" id="d1">${moment(date).format("dddd")}</h6>
-      <img class="wicon" alt="weather icon" src="http://openweathermap.org/img/w/${weatherData.daily[i].weather[0].icon}.png"
-      <p class="card-subtitle pb-2">Temp: ${weatherData.daily[i].temp.day} \u00B0F</p>
-      <p class="card-subtitle pb-2">Wind Speed: ${weatherData.daily[i].wind_speed} MPH</p>
-      <p class="card-subtitle pb-2">Humidity: ${weatherData.daily[i].humidity} %</p>
-      </div>`)
-      $("#five-day-card").append(forecastCard);
-      day++
-    }
-  
+  // LOOP THROUGH MOST RECENT 5 DAYS AND DISPLAY DATA
+  $("#five-day-card").empty();
+  for (var i = 1; i < 6; i++) {
+    // USE MOMENT.JS TO SHOW DAY
+    var date = new Date(weatherData.daily[i].dt * 1000)
+    // MAKES 5 FORECAST CARDS 
+    var forecastCard = $("<div class='card col-md-2 col-sm-12 mb-2 bg-primary'></div>")
+    forecastCard.html(`<div class="card-body forecast">
+    <h6 class="card-title" id="d1">${moment(date).format("ddd, M/D/YY")}</h6>
+    <img class="wicon" alt="weather icon" src="http://openweathermap.org/img/w/${weatherData.daily[i].weather[0].icon}.png">
+    <p class="card-subtitle pb-2">Temp: ${weatherData.daily[i].temp.day} \u00B0F</p>
+    <p class="card-subtitle pb-2">Wind Speed: ${weatherData.daily[i].wind_speed} MPH</p>
+    <p class="card-subtitle pb-2">Humidity: ${weatherData.daily[i].humidity} %</p>
+    </div>`)
+    $("#five-day-card").append(forecastCard);
+    day++
+  }
 }
 
 var saveToLS = function(city) {
