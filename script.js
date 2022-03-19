@@ -1,9 +1,11 @@
 var apiKey = "0d85314b31a755a43bdccedd2ac4d9c4";
 var geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
 var url = "https://api.openweathermap.org/data/2.5/onecall?";
-var userFormEl = document.querySelector("#user-form");
-var cityInputEl = document.querySelector("#cityName");
-var exclude = "&exclude=minutely,hourly,alerts&units=imperial"
+var searchForm = document.querySelector("#search-form");
+var cityInput = document.querySelector("#cityName");
+var searchBtn = $("#search");
+var exclude = "&exclude=minutely,hourly,alerts&units=imperial";
+var defaultCity = "Phoenix";
 
 var forecast = function(city) {
   fetch(geoUrl + city + "&appid=" + apiKey).then(function (response) {
@@ -12,24 +14,40 @@ var forecast = function(city) {
       return weather.json();
     }).then(function (data1) {
       console.log(data1);
-    })
+      $("#city-search").text(city);
+      $("#temp-now").text("Temperature: " + data1.current.temp + " \u00B0F");
+      $("#wind-now").text("Wind Speed: " + data1.current.wind_speed + " MPH");
+      $("#humidity-now").text("Humidity: " + data1.current.humidity + " %");
+      $("#uv-now").text(data1.current.uvi);
+
+      if(data1.current.uvi < 3) {
+        $("#uv-now").addClass("uv-favorable");
+      } else if (data1.current.uvi > 3 && data1.current.uvi < 6) {
+        $("#uv-now").removeClass("uv-favorable");
+        $("#uv-now").addClass("uv-moderate");
+      } else {
+        $("#uv-now").removeClass("uv-favorable");
+        $("#uv-now").removeClass("uv-moderate");
+        $("#uv-now").addClass("uv-severe");
+      };
+    });
   });
 });
-}
+};
 
-var formSubmitHandler = function(event) {
-  event.preventDefault();
-
-  var cityName = cityInputEl.value.trim();
+var search = function(search) {
+  search.preventDefault();
+  var cityName = document.getElementById("cityName").value;
+  console.log(cityName)
 
   if (cityName) {
     forecast(cityName);
-    cityInputEl.value = "";
+    cityInput.value = "";
   } else {
     window.alert("Please enter a valid City");
   }
 };
 
-forecast("Phoenix");
+forecast(defaultCity);
 
-userFormEl.addEventListener("submit", formSubmitHandler);
+searchBtn.on("click", search);

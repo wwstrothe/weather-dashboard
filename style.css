@@ -1,13 +1,3 @@
-:root {
-  background-color: #ecf5ff;
-  margin: 0;
-  padding: 0;
-}
-
-/************************/
-/*        Global        */
-/************************/
-
 body {
   background-color: #ecf5ff;
   display: flex;
@@ -15,9 +5,6 @@ body {
   max-width: 100vw;
 }
 
-form {
-  padding-top: 0.25rem;
-}
 
 h1 {
   background-color: black;
@@ -27,85 +14,17 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  margin: 0 0 0 0.5rem;
-}
-
-h5 {
-  font-size: .875rem;
-}
-
-hr {
-  padding-bottom: 0;
-  margin-top: 0.75rem;
-  margin-bottom: 0;
-}
-
 p {
   margin: 0 0 1rem 1rem;
   font-size: 1.125rem;
   font-weight: 600;
 }
 
-span {
-  padding: 0.25rem;
-  color: white;
-}
-
-/************************/
-/*        Classes       */
-/************************/
-
 .btn {
   background-color: green;
   margin-bottom: 0.1875rem;
   width: 100%;
 }
-
-
-#addCity {
-  background-color: #ecf5ff;
-  margin-bottom: 0.2rem;
-  text-align: center;
-  width: 100%;
-}
-
-#cityBtn {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin: 0.0625rem 0;
-  padding: 0.0625rem;
-}
-
-#main {
-  width: 75%;
-}
-
-#searchBtn {
-  justify-content: center;
-  margin: 0.125rem 0;
-  padding: 0.1875rem;
-  width: 100%;
-}
-
-#todayIcon {
-  height: 5.5rem;
-  width: 5.5rem;
-}
-
-#today {
-  display: block;
-  margin-top: 0.25rem;
-}
-
-#ul-view {
-  list-style-type: none;
-  text-align: left;
-}
-
-/************************/
-/*       Buttons        */
-/************************/
 
 #searchBtn {
   background-color: forestgreen;
@@ -117,4 +36,22 @@ span {
   margin: 0.125rem 0;
   padding: 0.1875rem;
   width: 100%;
+}
+
+.uv-severe {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
+.uv-moderate {
+  background-color: yellow;
+  font-weight: bold;
+  color: black;
+}
+
+.uv-favorable {
+  background-color: green;
+  font-weight: bold;
+  color: white;
 }
