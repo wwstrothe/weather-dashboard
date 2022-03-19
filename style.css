@@ -2,7 +2,6 @@ body {
   background-color: #ecf5ff;
   display: flex;
   justify-content: center;
-  max-width: 100vw;
 }
 
 
@@ -16,7 +15,7 @@ h1 {
 
 p {
   margin: 0 0 1rem 1rem;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -54,4 +53,28 @@ p {
   background-color: green;
   font-weight: bold;
   color: white;
+}
+
+
+/* 5 day forecast */
+.five-forecast-title {
+  font-size: 1.5vw;
+}
+
+.forecast {
+  color: antiquewhite;
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 1vw;
+}
+
+.card-body h6 {
+  font-size: 1.25vw;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: .75rem
 }

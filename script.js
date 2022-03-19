@@ -30,6 +30,15 @@ var forecast = function(city) {
         $("#uv-now").removeClass("uv-moderate");
         $("#uv-now").addClass("uv-severe");
       };
+
+      var s = 1;
+
+      for (var i = 0; i < data1.daily.length && i < 5; i++) {
+        $("#temp-" + s).text("Temp: " + data1.daily[i].temp.day + " \u00B0F");
+        $("#wind-" + s).text("Wind Speed: " + data1.daily[i].wind_speed + " MPH");
+        $("#humidity-" + s).text("Humidity: " + data1.daily[i].humidity + " %")
+        s++
+      }
     });
   });
 });

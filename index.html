@@ -21,7 +21,7 @@
           <h3 class="card-header text-uppercase">Search By City</h3>
           <form id="search-form" class="card-body">
             <label class="form-label" for="cityName">City</label>
-            <input name="cityName" id="cityName" type="text" autofocus="true" placeholder="Phoenix" />
+            <input name="cityName" id="cityName" type="text" autofocus="true" />
             <button id="search" class="btn">Get Weather</button>
           </form>
         </div>
@@ -30,7 +30,7 @@
       </aside>
 
       <section class="col-sm-9 container">
-        <div class="col-md-9 col-sm-12">
+        <div class="col-md-12 col-sm-12">
           <div class="card border-2 border-dark bg-transparent">
             <div class="card-body">
               <div class="d-flex d-inline">
@@ -47,6 +47,56 @@
               </div>
             </div>
           </div>
+
+          <div class="card bg-transparent mt-5 border-0">
+            <h4 class="five-forecast-title text-center">5 Day Weather Forecast</h4>
+            <div class="row d-flex justify-content-around">
+                <!-- day 1 -->
+              <div class="five-day card col-md-2 col-sm-12 mb-2 bg-primary">
+                <div class="card-body forecast">
+                  <h6 class="card-title" id="d1"></h6>
+                  <p class="card-subtitle pb-2" id="temp-1"></p>
+                  <p class="card-subtitle pb-2" id="wind-1" ></p>
+                  <p class="card-subtitle pb-2" id="humidity-1"></p>
+                </div>
+              </div>
+              <!-- day 2 -->
+              <div class="five-day card col-md-2 col-sm-12 mb-2 bg-primary">
+                <div class="card-body forecast">
+                  <h6 class="card-title" id="d2"></h6>
+                  <p class="card-subtitle pb-2" id="temp-2"></p>
+                  <p class="card-subtitle pb-2" id="wind-2" ></p>
+                  <p class="card-subtitle pb-2" id="humidity-2"></p>
+                </div>
+              </div>
+            <!-- day 3 -->
+              <div class="five-day card col-md-2 col-sm-12 mb-2 bg-primary">
+                <div class="card-body forecast">
+                  <h6 class="card-title" id="d3"></h6>
+                  <p class="card-subtitle pb-2" id="temp-3"></p>
+                  <p class="card-subtitle pb-2" id="wind-3" ></p>
+                  <p class="card-subtitle pb-2" id="humidity-3"></p>
+                </div>
+              </div>
+              <!-- day 4 -->
+              <div class="five-day card col-md-2 col-sm-12 mb-2 bg-primary">
+                <div class="card-body forecast">
+                  <h6 class="card-title" id="d4"></h6>
+                  <p class="card-subtitle pb-2" id="temp-4"></p>
+                  <p class="card-subtitle pb-2" id="wind-4" ></p>
+                  <p class="card-subtitle pb-2" id="humidity-4"></p>
+                </div>
+              </div>
+              <!-- day 5 -->
+              <div class="five-day card col-md-2 col-sm-12 mb-2 bg-primary">
+                <div class="card-body forecast">
+                  <h6 class="card-title" id="d5"></h6>
+                  <p class="card-subtitle pb-2" id="temp-5"></p>
+                  <p class="card-subtitle pb-2" id="wind-5" ></p>
+                  <p class="card-subtitle pb-2" id="humidity-5"></p>
+                </div>
+              </div>
+            </div>
       </section>
 
     </div>
