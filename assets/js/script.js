@@ -72,6 +72,7 @@ var forecast = function(weatherData) {
   }
 }
 
+// SAVE DATA TO LOCAL STORAGE
 var saveToLS = function(city) {
   var cityStorage = localStorage.getItem("cityStorage");
   if (cityStorage) {
@@ -86,14 +87,19 @@ var saveToLS = function(city) {
   }
 }
 
+// LOAD DATA FROM LOCAL STORAGE
 var loadFromLS = function() {
+
+  // CONDITIONAL (TERNARY) OPERATOR INSTEAD OF IF...ELSE STATEMENT
   var cityArray = localStorage.getItem("cityStorage") ? JSON.parse(localStorage.getItem("cityStorage")) : []
   console.log(cityArray);
   $("#searchHistory").empty();
   var cityLength = cityArray.length
+  // CREATE A LOOP TO LIST THE CITIES BELOW THE SEARCH FUNCTION
   for (var i = cityLength-1; i >= 0; i--) { 
     if (i>cityLength-11) {
       var searchItem = $(`<p>${cityArray[i]}</p>`)
+      // IF ITEM GETS CLICKED ON, RETURN TO CURRENT FUNCTION TO RE-RUN
       searchItem.on("click", function() {
         console.log($(this).text())
         current($(this).text())
@@ -104,7 +110,7 @@ var loadFromLS = function() {
   }
 }
 
-
+// SEARCH FUNCTION STARTS AFTER submitBtn PRESS
 var search = function(search) {
   search.preventDefault();
   var cityName = document.getElementById("cityName").value;
